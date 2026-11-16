@@ -1,0 +1,31 @@
+
+name: My First CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Check Files
+        run: ls -la
+
+      - name: Build Application
+        run: echo "Application build successful"
+
+      - name: Run Tests
+        run: echo "All tests passed"
+
+      - name: Pipeline Completed
+        run: echo "CI pipeline completed successfully"
